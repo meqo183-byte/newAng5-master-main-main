@@ -8,19 +8,4 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './error.scss',
 })
 export class Error {
-  constructor(private x :Router  ){
-    console.log(this.x);
-    
-  }
-
-
- user  =  "dsfdsghh"
- id = 10
-
- 
-
-  goToHome(){
-
-     this.x.navigateByUrl(`/home?id=${this.id}`)
-  }
 }
