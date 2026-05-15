@@ -1,0 +1,104 @@
+.site-footer {
+  background-color: #f2f2f2;
+  padding: 60px 20px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.footer-block h4,
+.brand-title {
+  margin-bottom: 15px;
+}
+
+.brand-title {
+  color: #ff6b3d;
+  font-size: 22px;
+}
+
+.brand-text {
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.social-icons a {
+  margin-right: 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #555;
+}
+
+.block-heading {
+  font-size: 18px;
+}
+
+.footer-block p {
+  color: #555;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #555;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #ff6b3d;
+}
+
+.subscribe-box {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.subscribe-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.subscribe-box button {
+  padding: 10px 16px;
+  background-color: #ff6b3d;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscribe-box button:hover {
+  background-color: #e85a2f;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer-bottom span {
+  color: #ff6b3d;
+  font-weight: bold;
+}

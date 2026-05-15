@@ -1,0 +1,79 @@
+<div class="BigContainerForProducts">
+    <div class="filter-container">
+  <h2>Filters</h2>
+
+  <!-- Search -->
+  <div class="section">
+    <label>Search</label>
+    <input type="text" [(ngModel)]="liveSearch" placeholder="Search dishes..." />
+  </div>
+
+  <!-- Categories -->
+  <div class="section">
+    <label>Categories</label>
+    @for (item of gottenCategoriesFromGetApiThatNeedsToBeInTheLoop; track item.id) {
+    <div class="checkbox"><input type="checkbox" checked>{{item.name}}</div>
+    }
+  </div>
+
+  <!-- Vegetarian -->
+  <div class="section flex">
+    <label>Vegetarian Only</label>
+    <input type="checkbox" class="toggle">
+  </div>
+
+  <!-- Spiciness -->
+  <div class="section">
+    <label>Spiciness (0-5)</label>
+    <input type="range" min="0" max="5">
+    <p class="hint">Level: not selected</p>
+  </div>
+
+  <!-- Rating -->
+  <div class="section">
+    <label>Minimum Rating</label>
+    <input type="range" min="0" max="5" step="0.5">
+    <p class="hint">⭐ 0.0+</p>
+  </div>
+
+  <!-- Price -->
+  <div class="section">
+    <label>Min price</label>
+    <input type="range" min="0" max="500">
+  </div>
+
+  <div class="section">
+    <label>Max price</label>
+    <input type="range" min="0" max="500" value="500">
+    <p class="hint">$ 500+</p>
+  </div>
+
+  <button class="clear-btn">Clear All Filters</button>
+</div>
+
+
+<main class="mn">
+@for (item of product2Arr; track $index) {
+   <div class="card" style="width: 18rem;" routerLink="/details" queryParams="{id : item.id}">
+  <img [src]="item.image" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">$ {{item.price}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+}
+</main>
+</div>
+
+<div class="pagination">
+  <button class="page-btn arrow" [disabled]="currentPage === 1" (click)="changePage(currentPage - 1)">←</button>
+   <!-- @for(p of pages; track p){
+  <ng-container>
+    @if(p === '...'){<span class="dots">···</span>}
+    @if(p !== '...'){<button class="page-btn" [class.active]="p === currentPage" (click)="changePage(1)">{{p}}</button>}
+  </ng-container>
+} -->
+
+  <button class="page-btn arrow" [disabled]="currentPage === totalPages" (click)="changePage(currentPage + 1)">→</button>
+</div> 

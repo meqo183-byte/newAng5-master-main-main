@@ -1,0 +1,65 @@
+.active{
+    background-color: rgb(50, 64, 70);
+    padding: 10px;
+}
+
+nav {
+  background:  #f4511e;
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #cbd5f5;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  padding: 6px 0;
+}
+
+/* hover effect */
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #38bdf8;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* active link */
+.active {
+  color: #38bdf8;
+}
+
+.active::after {
+  width: 100%;
+}

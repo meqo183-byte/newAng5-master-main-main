@@ -1,0 +1,508 @@
+$primary-orange: #ff7043;
+$transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+.hero-section {
+  // 1. Full-width and fixed height to match image ratio
+  width: 100%;
+  height: 70vh; // Occupies 80% of screen height
+  min-height: 500px;
+  
+  // 2. Setup the background image
+  background-image: url('https://restaurant.stepacademy.ge/restaurant-food-spread.png');
+  background-size: cover; // Fills the space
+  background-position: center; // Keeps it centered
+  background-repeat: no-repeat;
+  
+  // 3. Layout: Center the content
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  // 4. Important: Darken the image slightly so text is readable
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative; // Moves it above the background overlay
+  z-index: 2;
+}
+
+.hero-content {
+  color: white; // Main text color
+  
+  h1 {
+    font-size: 3.5rem; // Large, bold typography
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    
+    // Smooth responsive typography
+    @media (max-width: 768px) { font-size: 2.2rem; }
+  }
+  
+  p {
+    font-size: 1.25rem; // Subtle subtitle
+    font-weight: 400;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    
+    @media (max-width: 768px) { font-size: 1.1rem; }
+  }
+}
+
+// 5. Button Styling
+.primary-btn {
+  background-color: $primary-orange; // Matches filter panel accents
+  color: white;
+  border: none;
+  padding: 16px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px; // Design shape
+  cursor: pointer;
+  transition: $transition;
+  box-shadow: 0 4px 15px rgba($primary-orange, 0.3);
+  
+  &:hover {
+    background-color: darken($primary-orange, 5%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba($primary-orange, 0.4);
+  }
+}
+
+
+$primary-orange: #ff7043;
+$shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+.popular-section {
+  padding: 60px 0;
+  text-align: center;
+}
+.section-title{
+    padding-bottom: 40px;
+}
+
+// THE FLEXBOX CONTAINER
+.product-flex-container {
+  display: flex;
+  flex-wrap: wrap; // Allows cards to drop to the next line
+  justify-content: center; // Centers the cards in the row
+  gap: 30px; // Spacing between cards
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+/* PRODUCT GRID & CARD STYLING */
+
+.product-flex-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  background: white;
+  border-radius: 14px;
+  border: 1px solid #ffe0b2;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 8px rgba(255, 152, 0, 0.08);
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(255, 152, 0, 0.15);
+  border-color: #ff9800;
+}
+
+/* Card Image */
+.card-image {
+  width: 100%;
+  aspect-ratio: 1.2;
+  background: linear-gradient(135deg, #fff8f0 0%, #ffe8d6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .card-image img {
+  transform: scale(1.08);
+}
+
+/* Card Content */
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.product-description {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Product Meta (Rating & Price) */
+.product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ffe0b2;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.star {
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.score {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ff9800;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff5722;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+  background: linear-gradient(135deg, #ff9800, #ffb74d);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 152, 0, 0.3);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
+}
+
+/* Responsive - Tablets */
+@media (max-width: 768px) {
+  .product-flex-container {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .product-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  .product-description {
+    font-size: 12px;
+    margin-bottom: 14px;
+  }
+
+  .product-meta {
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .add-to-cart-btn {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+  .product-flex-container {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .card-image {
+    aspect-ratio: 1;
+  }
+
+  .card-content {
+    padding: 12px;
+  }
+
+  .product-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .product-description {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .product-meta {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    gap: 8px;
+  }
+
+  .star {
+    font-size: 12px;
+  }
+
+  .score {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .add-to-cart-btn {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+}
+
+/* Small Phone */
+
+/* Accessibility */
+.product-card:focus-visible {
+  outline: 2px solid #ff9800;
+  outline-offset: 2px;
+}
+
+.add-to-cart-btn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+$primary-orange: #ff7043;
+$text-color: #555;
+
+.story-section {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.flex-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  // Responsive: Stack on small screens
+  @media (max-width: 992px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 40px;
+  }
+}
+
+.image-container {
+  flex: 1;
+  width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px; // Matching your design's rounded corners
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: block;
+  }
+}
+
+.text-container {
+  flex: 1;
+
+  .story-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: #000;
+  }
+
+  .story-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: $text-color;
+    margin-bottom: 20px;
+  }
+
+  .explore-btn {
+    background-color: $primary-orange;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: darken($primary-orange, 5%);
+      transform: translateY(-2px);
+    }
+  }
+}
+
+
+
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+
+  p {
+    color: #666;
+    font-size: 14px;
+  }
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f0f0f0;
+  border-top-color: #e74c3c; // match your food app's brand color
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 12px;
+
+  p {
+    color: #888;
+    font-size: 14px;
+  }
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f0f0f0;
+  border-top-color: #e74c3c; // your brand color
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+
+.scroll-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  background-color: #e74c3c; // your brand color
+  color: white;
+  font-size: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s, transform 0.2s;
+
+  &:hover {
+    background-color: #c0392b;
+    transform: translateY(-3px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
