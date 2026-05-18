@@ -1,0 +1,87 @@
+<app-loader></app-loader>
+
+<div class="product-page">
+  <div class="product-container">
+    <div class="product-visual">
+      <img [src]="products.image" alt="Sfogliatelle">
+    </div>
+
+    <div class="product-details">
+      <header class="product-header">
+        <h1 class="title">{{products.name}}</h1>
+        <div class="rating">
+          <span class="stars">{{getStars(products.rate)}}</span>
+          <span class="count">({{products.rate}} rating)</span>
+        </div>
+        <div class="price">${{products.price}}</div>
+        @if(products.vegeterian == true){
+        <div class="badge vegetarian">
+         <img style="height: 30px;" src="leaf.svg" alt=""> Vegetarian
+        </div>
+      }
+      </header>
+
+      <p class="description">
+              {{products.description}}
+      </p>
+
+      <section class="info-block">
+        <h3>Ingredients:</h3>
+        <div class="ingredients-list">
+          <div class="ing-col">
+            {{products.ingredients?.[0]}}
+          </div>
+          <div class="ing-col">
+            {{products.ingredients?.[1]}}
+          </div>
+        </div>
+      </section>
+
+      <section class="info-block">
+        <h3>Preparation Method:</h3>
+        <p>{{products.method}}</p>
+      </section>
+
+      <footer class="product-actions">
+        <div class="quantity-control">
+          <button class="qty-btn" (click)="updateQty(-1)">-</button>
+          <span class="qty-num">{{qty}}</span>
+          <button class="qty-btn" (click)="updateQty(1)">+</button>
+        </div>
+        <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<section class="related-section">
+  <div class="container">
+    <h2 class="section-title">You May Also Like</h2>
+    <div class="related-flex-container">
+      @for (item of MightLike; track item.id) {
+      <article class="product-card" routerLink="/details" [queryParams]="{id: item.id}">
+        <div class="card-image">
+          <img [src]="item.image" alt="Sfodfdle">
+        </div>
+        
+        <div class="card-content">
+          <h3 class="product-title">{{item.name}}</h3>
+          <p class="product-description">{{item.description}}</p>
+          
+          <div class="product-meta">
+            <div class="rating">
+              <span class="star">{{getStars(item.rate)}}</span>
+              <span class="score">{{item.rate}}</span>
+            </div>
+            <div class="price">{{item.price}}$</div>
+          </div>
+          
+          <button class="add-btn" (click)="addLikedIntoCart(item.id)">Add to Cart</button>
+        </div>
+      </article>
+    }
+      </div>
+
+    
+  </div>
+</section>

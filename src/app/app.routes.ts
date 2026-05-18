@@ -24,6 +24,10 @@ export const routes: Routes = [
         loadComponent: () => import('./admin/admin').then(resp => resp.Admin)
     },
     {
+        path: 'cart',
+        loadComponent: () => import('./cart/cart').then(resp => resp.Cart),
+    },
+    {
         path: "**"
         , loadComponent: () => import('./error/error').then(resp => resp.Error)
     },

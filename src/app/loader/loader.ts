@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { Services } from '../services/services';
 
 @Component({
   selector: 'app-loader',
@@ -7,6 +8,14 @@ import { Component } from '@angular/core';
   styleUrl: './loader.scss',
 })
 export class Loader {
+
+isLoading: boolean = false;
+  constructor(private cdr: ChangeDetectorRef, private loaderService: Services){
+    this.loaderService.loader$.subscribe((res) => {
+      this.isLoading = res.open;
+      this.cdr.markForCheck();
+    })
+  }
 
 
   
